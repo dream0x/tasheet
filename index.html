@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trading Cheat Sheet — SMC/ICT/Indicators</title>
+<script>
+  // Apply saved theme before first paint to avoid flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
+<style>
+  :root[data-theme="dark"] {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --border-dashed: #30363d;
+    --text: #e6edf3;
+    --text-strong: #f0f6fc;
+    --text-muted: #8b949e;
+    --text-desc: #c9d1d9;
+    --accent: #58a6ff;
+    --accent-2: #79c0ff;
+    --violet: #d2a8ff;
+    --green: #56d364;
+    --divider: #21262d;
+    --shadow: rgba(0, 0, 0, 0.4);
+    --star: #e3b341;
+  }
+  :root[data-theme="light"] {
+    --bg: #ffffff;
+    --card: #f6f8fa;
+    --border: #d0d7de;
+    --border-dashed: #d8dee4;
+    --text: #1f2328;
+    --text-strong: #0a0c10;
+    --text-muted: #656d76;
+    --text-desc: #1f2328;
+    --accent: #0969da;
+    --accent-2: #0550ae;
+    --violet: #8250df;
+    --green: #1a7f37;
+    --divider: #d8dee4;
+    --shadow: rgba(140, 149, 159, 0.2);
+    --star: #bf8700;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .header-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: 28px;
+    color: var(--text-strong);
+  }
+  .subtitle {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+  .icon-btns {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .icon-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    line-height: 1;
+  }
+  .icon-btn:hover { border-color: var(--accent); }
+  .icon-btn.active {
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 15%, var(--card));
+  }
+
+  .search-box {
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+    margin-bottom: 24px;
+    background: var(--card);
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+  #search {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-size: 16px;
+    outline: none;
+  }
+  #search:focus { border-color: var(--accent); }
+  .stats {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .category { margin-bottom: 32px; }
+  .category-title {
+    font-size: 20px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--divider);
+  }
+  .term-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 12px;
+  }
+  .term {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 40px 14px 16px;
+    transition: border-color 0.2s;
+  }
+  .term:hover { border-color: var(--accent); }
+  .term-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent-2);
+    margin-bottom: 4px;
+  }
+  .term-abbr {
+    color: var(--violet);
+    font-weight: 600;
+  }
+  .term-desc {
+    font-size: 14px;
+    color: var(--text-desc);
+    margin-bottom: 6px;
+  }
+  .term-use {
+    font-size: 13px;
+    color: var(--text-muted);
+    border-top: 1px dashed var(--border-dashed);
+    padding-top: 6px;
+    margin-top: 6px;
+  }
+  .term-use::before {
+    content: "Як використовувати: ";
+    color: var(--green);
+    font-weight: 600;
+  }
+  .fav-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 2px 6px;
+    line-height: 1;
+    border-radius: 4px;
+    transition: color 0.2s, transform 0.1s;
+  }
+  .fav-btn:hover { color: var(--star); }
+  .fav-btn.is-fav { color: var(--star); }
+  .fav-btn:active { transform: scale(0.9); }
+
+  .hidden { display: none !important; }
+  .no-results {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 12px; }
+    .term-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 22px; }
+    .header-row { flex-wrap: wrap; }
+  }
+
+  @media print {
+    :root[data-theme] {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --border: #cccccc;
+      --border-dashed: #cccccc;
+      --text: #000000;
+      --text-strong: #000000;
+      --text-muted: #333333;
+      --text-desc: #000000;
+      --accent: #000000;
+      --accent-2: #000000;
+      --violet: #333333;
+      --green: #000000;
+      --divider: #999999;
+      --shadow: transparent;
+    }
+    body { padding: 0; max-width: none; }
+    .search-box, .icon-btns, .fav-btn { display: none !important; }
+    .term-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .term, .category { break-inside: avoid; page-break-inside: avoid; }
+    .term { padding: 8px 12px; }
+    .category-title { border-bottom: 1px solid #999; }
+    h1 { font-size: 20px; }
+    .subtitle { margin-bottom: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header-row">
+  <div>
+    <h1 id="pageTitle">📊 Trading Cheat Sheet</h1>
+    <div class="subtitle" id="pageSubtitle">SMC / ICT / Indicators — повний довідник</div>
+  </div>
+  <div class="icon-btns">
+    <button class="icon-btn" id="favFilterBtn" title="Показати тільки обране">⭐</button>
+    <button class="icon-btn" id="printBtn" title="Друк / Зберегти в PDF">🖨️</button>
+    <button class="icon-btn" id="themeBtn" title="Змінити тему">🌙</button>
+  </div>
+</div>
+
+<div class="search-box">
+  <input type="text" id="search" placeholder="🔍 Пошук терміну (укр/eng/абревіатура)..." autofocus>
+  <div class="stats" id="stats"></div>
+</div>
+
+<div id="content"></div>
+<div class="no-results hidden" id="noResults">Нічого не знайдено</div>
+
+<script>
+  const state = {
+    data: null,
+    favorites: new Set(),
+    favFilterOn: false,
+  };
+
+  // --- Theme ---
+  const themeBtn = document.getElementById('themeBtn');
+  function syncThemeBtn() {
+    const t = document.documentElement.getAttribute('data-theme');
+    themeBtn.textContent = t === 'light' ? '☀️' : '🌙';
+  }
+  themeBtn.addEventListener('click', () => {
+    const cur = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    syncThemeBtn();
+  });
+  syncThemeBtn();
+
+  // --- Favorites ---
+  function loadFavorites() {
+    try {
+      const raw = localStorage.getItem('favorites');
+      if (raw) state.favorites = new Set(JSON.parse(raw));
+    } catch (e) {}
+  }
+  function saveFavorites() {
+    try {
+      localStorage.setItem('favorites', JSON.stringify([...state.favorites]));
+    } catch (e) {}
+  }
+  function favKey(catIdx, termName) {
+    return catIdx + ':' + termName;
+  }
+
+  const favFilterBtn = document.getElementById('favFilterBtn');
+  favFilterBtn.addEventListener('click', () => {
+    state.favFilterOn = !state.favFilterOn;
+    favFilterBtn.classList.toggle('active', state.favFilterOn);
+    applyFilters();
+  });
+
+  // --- Print ---
+  document.getElementById('printBtn').addEventListener('click', () => window.print());
+
+  // --- Render ---
+  function el(tag, opts = {}, children = []) {
+    const e = document.createElement(tag);
+    if (opts.className) e.className = opts.className;
+    if (opts.text != null) e.textContent = opts.text;
+    if (opts.attrs) for (const [k, v] of Object.entries(opts.attrs)) e.setAttribute(k, v);
+    if (opts.html != null) e.innerHTML = opts.html;
+    for (const c of children) if (c) e.appendChild(c);
+    return e;
+  }
+
+  function renderTerm(term, catIdx) {
+    const wrap = el('div', {
+      className: 'term',
+      attrs: { 'data-keywords': term.keywords || '' },
+    });
+
+    // Name + optional abbr
+    const nameEl = el('div', { className: 'term-name' });
+    nameEl.appendChild(document.createTextNode(term.name + (term.abbr ? ' ' : '')));
+    if (term.abbr) {
+      nameEl.appendChild(el('span', { className: 'term-abbr', text: '(' + term.abbr + ')' }));
+    }
+    wrap.appendChild(nameEl);
+
+    wrap.appendChild(el('div', { className: 'term-desc', text: term.desc || '' }));
+
+    if (term.use) {
+      wrap.appendChild(el('div', { className: 'term-use', text: term.use }));
+    }
+
+    // Favorite button
+    const key = favKey(catIdx, term.name);
+    const favBtn = el('button', {
+      className: 'fav-btn' + (state.favorites.has(key) ? ' is-fav' : ''),
+      attrs: { 'aria-label': 'Додати в обране', 'title': 'Додати в обране' },
+    });
+    favBtn.textContent = state.favorites.has(key) ? '★' : '☆';
+    favBtn.dataset.favKey = key;
+    favBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (state.favorites.has(key)) {
+        state.favorites.delete(key);
+        favBtn.classList.remove('is-fav');
+        favBtn.textContent = '☆';
+      } else {
+        state.favorites.add(key);
+        favBtn.classList.add('is-fav');
+        favBtn.textContent = '★';
+      }
+      saveFavorites();
+      if (state.favFilterOn) applyFilters();
+    });
+    wrap.appendChild(favBtn);
+
+    return wrap;
+  }
+
+  function renderCheatsheet(data) {
+    if (data.title) document.getElementById('pageTitle').textContent = data.title;
+    if (data.subtitle) document.getElementById('pageSubtitle').textContent = data.subtitle;
+    if (data.title) document.title = data.title.replace(/^[^\w]*/, '') + ' — SMC/ICT/Indicators';
+
+    const content = document.getElementById('content');
+    content.innerHTML = '';
+
+    data.categories.forEach((cat, idx) => {
+      const catEl = el('div', {
+        className: 'category',
+        attrs: { 'data-category': cat.dataCategory || cat.title },
+      });
+      const titleText = (cat.icon ? cat.icon + ' ' : '') + (cat.title || '');
+      catEl.appendChild(el('div', { className: 'category-title', text: titleText }));
+      const grid = el('div', { className: 'term-grid' });
+      cat.terms.forEach((term) => grid.appendChild(renderTerm(term, idx)));
+      catEl.appendChild(grid);
+      content.appendChild(catEl);
+    });
+
+    applyFilters();
+  }
+
+  // --- Search + favorite filter ---
+  function applyFilters() {
+    const q = document.getElementById('search').value.trim().toLowerCase();
+    const favOnly = state.favFilterOn;
+
+    let visibleTerms = 0;
+    document.querySelectorAll('.category').forEach((cat) => {
+      let catVisible = 0;
+      cat.querySelectorAll('.term').forEach((t) => {
+        const favKeyStr = t.querySelector('.fav-btn').dataset.favKey;
+        const isFav = state.favorites.has(favKeyStr);
+
+        const name = t.querySelector('.term-name').textContent.toLowerCase();
+        const desc = t.querySelector('.term-desc').textContent.toLowerCase();
+        const useEl = t.querySelector('.term-use');
+        const use = useEl ? useEl.textContent.toLowerCase() : '';
+        const keywords = (t.getAttribute('data-keywords') || '').toLowerCase();
+
+        const matchesQuery = !q ||
+          name.includes(q) ||
+          desc.includes(q) ||
+          use.includes(q) ||
+          keywords.includes(q);
+        const matchesFav = !favOnly || isFav;
+
+        if (matchesQuery && matchesFav) {
+          t.classList.remove('hidden');
+          catVisible++;
+          visibleTerms++;
+        } else {
+          t.classList.add('hidden');
+        }
+      });
+      cat.classList.toggle('hidden', catVisible === 0);
+    });
+
+    const totalTerms = document.querySelectorAll('.term').length;
+    const stats = document.getElementById('stats');
+    if (q || favOnly) {
+      stats.textContent = `Показано ${visibleTerms} з ${totalTerms}`;
+    } else {
+      stats.textContent = `Всього термінів: ${totalTerms}`;
+    }
+
+    document.getElementById('noResults').classList.toggle('hidden', visibleTerms > 0);
+  }
+
+  document.getElementById('search').addEventListener('input', applyFilters);
+
+  // --- Bootstrap ---
+  loadFavorites();
+  fetch('terms.json', { cache: 'no-cache' })
+    .then((r) => {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then((data) => {
+      state.data = data;
+      renderCheatsheet(data);
+    })
+    .catch((err) => {
+      document.getElementById('content').innerHTML =
+        '<div class="no-results">Помилка завантаження terms.json: ' +
+        String(err).replace(/[<>&]/g, '') + '<br><br>Якщо ви відкрили файл напряму (file://), запустіть локальний сервер: <code>python3 -m http.server</code></div>';
+    });
+</script>
+
+</body>
+</html>

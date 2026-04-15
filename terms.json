@@ -1,0 +1,736 @@
+{
+  "title": "📊 Trading Cheat Sheet",
+  "subtitle": "SMC / ICT / Indicators — повний довідник",
+  "categories": [
+    {
+      "icon": "📈",
+      "title": "Структура ринку (Market Structure)",
+      "dataCategory": "Структура ринку",
+      "terms": [
+        {
+          "name": "HH",
+          "abbr": "Higher High",
+          "desc": "Вищий максимум. Кожен новий пік вище попереднього.",
+          "use": "Ознака висхідного тренду (uptrend).",
+          "keywords": "HH higher high higher highs хай хаї"
+        },
+        {
+          "name": "HL",
+          "abbr": "Higher Low",
+          "desc": "Вищий мінімум. Кожен новий лой вище попереднього.",
+          "use": "Підтверджує висхідний тренд.",
+          "keywords": "HL higher low хай лоу"
+        },
+        {
+          "name": "LH",
+          "abbr": "Lower High",
+          "desc": "Нижчий максимум. Новий пік нижче попереднього.",
+          "use": "Ознака низхідного тренду (downtrend).",
+          "keywords": "LH lower high"
+        },
+        {
+          "name": "LL",
+          "abbr": "Lower Low",
+          "desc": "Нижчий мінімум. Новий лой нижче попереднього.",
+          "use": "Підтверджує низхідний тренд.",
+          "keywords": "LL lower low"
+        },
+        {
+          "name": "BOS",
+          "abbr": "Break of Structure",
+          "desc": "Пробій попереднього структурного хаю/лою в напрямку тренду.",
+          "use": "Підтвердження продовження тренду. В аптренді — пробій HH.",
+          "keywords": "BOS break of structure пробій структури"
+        },
+        {
+          "name": "CHoCH",
+          "abbr": "Change of Character",
+          "desc": "Перший пробій структури в протилежному напрямку.",
+          "use": "Ранній сигнал розвороту тренду. BOS = тренд триває, CHoCH = можливий розворот.",
+          "keywords": "CHoCH change of character зміна характеру"
+        },
+        {
+          "name": "MSS",
+          "abbr": "Market Structure Shift",
+          "desc": "Аналог CHoCH в ICT термінології — зсув структури з імпульсом.",
+          "use": "Сильніший сигнал розвороту, особливо коли супроводжується displacement.",
+          "keywords": "MSS market structure shift зсув"
+        },
+        {
+          "name": "Swing High/Low",
+          "desc": "Локальний максимум/мінімум — точка повороту, від якої ринок розвернувся.",
+          "use": "Базові точки для побудови всієї структури і визначення BOS/CHoCH.",
+          "keywords": "swing high low свінг"
+        },
+        {
+          "name": "Internal vs External Structure",
+          "desc": "External = свінги старшого порядку (основний тренд). Internal = свінги всередині external.",
+          "use": "Торгуй internal в напрямку external для найкращих сетапів.",
+          "keywords": "internal external structure внутрішня зовнішня"
+        }
+      ]
+    },
+    {
+      "icon": "🟦",
+      "title": "Order Blocks (OB)",
+      "dataCategory": "Order Blocks",
+      "terms": [
+        {
+          "name": "OB",
+          "abbr": "Order Block",
+          "desc": "Остання свічка протилежного напрямку перед сильним імпульсом. Зона, де smart money набирали позицію.",
+          "use": "Очікуй реакцію (відскок) при поверненні ціни до OB.",
+          "keywords": "OB order block ордер блок"
+        },
+        {
+          "name": "Bullish OB",
+          "desc": "Остання ведмежа (червона) свічка перед сильним рухом вгору.",
+          "use": "Зона для пошуку лонгів при поверненні ціни.",
+          "keywords": "bullish OB бичачий"
+        },
+        {
+          "name": "Bearish OB",
+          "desc": "Остання бичача (зелена) свічка перед сильним рухом вниз.",
+          "use": "Зона для пошуку шортів при поверненні ціни.",
+          "keywords": "bearish OB ведмежий"
+        },
+        {
+          "name": "Swing OB (External)",
+          "desc": "OB на основних свінг-поінтах старшого порядку. Сильніший, значущіший.",
+          "use": "Для великих рухів і розворотів. Ідеальний для свінг-трейдингу.",
+          "keywords": "swing OB зовнішній"
+        },
+        {
+          "name": "Internal OB",
+          "desc": "OB всередині поточної структури, між свінг-поінтами. Нижчого порядку.",
+          "use": "Для входів всередині тренду, скальпінгу, дрібніших сетапів.",
+          "keywords": "internal OB внутрішній"
+        },
+        {
+          "name": "Breaker Block",
+          "desc": "OB, який був пробитий в протилежному напрямку, але потім ціна повернулась і використала його як підтримку/опір.",
+          "use": "Сильна зона для входу в розворот. \"Failed OB\" що став підтримкою.",
+          "keywords": "breaker block"
+        },
+        {
+          "name": "Mitigation Block",
+          "desc": "Зона, де smart money закривають частину позиції після невдалої спроби руху.",
+          "use": "Шукай реакцію коли ціна повертається — закриті позиції створюють новий imbalance.",
+          "keywords": "mitigation block"
+        },
+        {
+          "name": "Rejection Block",
+          "desc": "Свічка з довгою тінню (wick), яка відображає відхилення ціни від рівня.",
+          "use": "Тіло wick-а вказує на зону, куди ціна може повернутись для тесту.",
+          "keywords": "rejection block відхилення"
+        }
+      ]
+    },
+    {
+      "icon": "⚖️",
+      "title": "Imbalance / Fair Value Gaps",
+      "dataCategory": "Imbalance / FVG",
+      "terms": [
+        {
+          "name": "FVG",
+          "abbr": "Fair Value Gap",
+          "desc": "Геп з 3 свічок: тінь першої і тінь третьої не перетинаються. Ціна рухалась так швидко, що залишила пустоту.",
+          "use": "Магніт для ціни — ринок прагне повернутись і заповнити геп. Зона входу.",
+          "keywords": "FVG fair value gap геп пустота"
+        },
+        {
+          "name": "Imbalance (IMB)",
+          "desc": "Загальна назва для зон, де покупки/продажі переважили — синонім FVG.",
+          "use": "Те саме, що FVG. Іноді використовують ширше — будь-яка непропорційність.",
+          "keywords": "imbalance дисбаланс IMB"
+        },
+        {
+          "name": "BPR",
+          "abbr": "Balanced Price Range",
+          "desc": "Зона перетину bullish і bearish FVG. Утворюється коли два протилежних гепи накладаються.",
+          "use": "Дуже сильна зона реакції — подвійне підтвердження від обох сторін.",
+          "keywords": "BPR balanced price range"
+        },
+        {
+          "name": "Liquidity Void",
+          "desc": "Велика зона без торгової активності — широкий FVG після різкого імпульсу.",
+          "use": "Ціна часто повертається повністю заповнити void перед продовженням руху.",
+          "keywords": "liquidity void порожнеча"
+        }
+      ]
+    },
+    {
+      "icon": "💧",
+      "title": "Liquidity (Ліквідність)",
+      "dataCategory": "Liquidity",
+      "terms": [
+        {
+          "name": "BSL",
+          "abbr": "Buy Side Liquidity",
+          "desc": "Ліквідність над хаями — buy stops лонгистів і стопи шортистів.",
+          "use": "Smart money \"збирає\" цю ліквідність перед розворотом вниз.",
+          "keywords": "BSL buy side liquidity buy stops"
+        },
+        {
+          "name": "SSL",
+          "abbr": "Sell Side Liquidity",
+          "desc": "Ліквідність під лоями — sell stops лонгистів і стопи шортистів.",
+          "use": "Smart money збирає перед розворотом вгору.",
+          "keywords": "SSL sell side liquidity sell stops"
+        },
+        {
+          "name": "Liquidity Sweep / Stop Hunt",
+          "desc": "Швидкий рух ціни за рівень ліквідності з негайним поверненням. \"Полювання за стопами\".",
+          "use": "Класичний сетап — після свіпу шукай вхід в протилежному напрямку.",
+          "keywords": "liquidity sweep stop hunt свіп"
+        },
+        {
+          "name": "EQH",
+          "abbr": "Equal Highs",
+          "desc": "Два або більше хаї на однаковому рівні. Виглядає як подвійна вершина.",
+          "use": "НЕ патерн розвороту — це зона ліквідності. Очікуй свіп вище, потім розворот.",
+          "keywords": "EQH equal highs рівні хаї"
+        },
+        {
+          "name": "EQL",
+          "abbr": "Equal Lows",
+          "desc": "Два або більше лої на однаковому рівні.",
+          "use": "Зона ліквідності внизу. Очікуй свіп нижче перед потенційним розворотом.",
+          "keywords": "EQL equal lows рівні лоу"
+        },
+        {
+          "name": "Liquidity Pool",
+          "desc": "Зона концентрації стопів і відкладених ордерів.",
+          "use": "Ринок тяжіє до пулів як до магнітів — завжди питай \"де наступний пул?\"",
+          "keywords": "liquidity pool пул"
+        },
+        {
+          "name": "Inducement (IDM)",
+          "desc": "Маленький свінг, спеціально створений smart money щоб заманити трейдерів у пастку.",
+          "use": "Перш ніж зайти в OB — перевір чи є inducement, який має бути взятий першим.",
+          "keywords": "inducement inducer"
+        },
+        {
+          "name": "Trendline Liquidity",
+          "desc": "Стопи, поставлені під/над трендовою лінією, до якої тяжіють трейдери.",
+          "use": "Smart money часто пробивають трендлайни щоб зібрати ліквідність, потім розвертаються.",
+          "keywords": "trendline liquidity"
+        }
+      ]
+    },
+    {
+      "icon": "⚡",
+      "title": "Premium / Discount / PD Arrays",
+      "dataCategory": "Premium/Discount",
+      "terms": [
+        {
+          "name": "Premium Zone",
+          "desc": "Верхня половина діапазону (від свінг-лоу до свінг-хай). \"Дорога\" зона.",
+          "use": "Шукай шорти в premium. Smart money продають тут.",
+          "keywords": "premium zone преміум"
+        },
+        {
+          "name": "Discount Zone",
+          "desc": "Нижня половина діапазону. \"Дешева\" зона.",
+          "use": "Шукай лонги в discount. Smart money купують тут.",
+          "keywords": "discount zone дисконт"
+        },
+        {
+          "name": "Equilibrium (½ / 50%)",
+          "desc": "Середина діапазону між свінг-лоу і свінг-хай. Розділяє premium і discount.",
+          "use": "Ключовий рівень реакції. На індикаторах позначається як ½.",
+          "keywords": "equilibrium 50% мід"
+        },
+        {
+          "name": "OTE",
+          "abbr": "Optimal Trade Entry",
+          "desc": "Зона 62-79% Фібоначчі ретрейсменту. \"Золотий\" рівень для входу.",
+          "use": "Найкраща зона для входу за трендом після ретрейсменту.",
+          "keywords": "OTE optimal trade entry оптимальна"
+        },
+        {
+          "name": "PD Array",
+          "desc": "Набір SMC елементів (OB, FVG, Breaker) у premium або discount зонах.",
+          "use": "Шукай конфлюенс PD Arrays для найсильніших сетапів.",
+          "keywords": "PD array premium discount"
+        }
+      ]
+    },
+    {
+      "icon": "🎯",
+      "title": "ICT Концепти (продвинуті)",
+      "dataCategory": "ICT концепти",
+      "terms": [
+        {
+          "name": "PO3 / AMD",
+          "abbr": "Power of 3",
+          "desc": "Цикл з 3 фаз: Accumulation (накопичення) → Manipulation (маніпуляція/свіп) → Distribution (розподіл/рух).",
+          "use": "Дивись на денну/тижневу свічку як на PO3 — знаходь фази для тайменгу входу.",
+          "keywords": "PO3 power of 3 AMD"
+        },
+        {
+          "name": "Judas Swing",
+          "desc": "Хибний рух на початку сесії (зазвичай Лондон) в протилежному напрямку перед справжнім.",
+          "use": "Перші 1-2 години Лондона часто = Judas. Не торгуй імпульс — чекай розворот.",
+          "keywords": "judas swing"
+        },
+        {
+          "name": "Silver Bullet",
+          "desc": "ICT сетап у вузькому часовому вікні (10:00-11:00 NY або 03:00-04:00 NY).",
+          "use": "Шукай FVG в killzone і входь з тісним ризиком.",
+          "keywords": "silver bullet"
+        },
+        {
+          "name": "Killzones",
+          "desc": "Конкретні часові вікна найвищої активності: London Open, NY Open, London Close, Asia.",
+          "use": "Найкращі сетапи відбуваються в killzones. Поза ними — низька ймовірність.",
+          "keywords": "killzone сесії"
+        },
+        {
+          "name": "Turtle Soup",
+          "desc": "Свіп попереднього хаю/лою з негайним розворотом. Класичний контртренд сетап.",
+          "use": "Чекай свіпу PDH/PDL/PWH/PWL і входь в розворот при підтвердженні.",
+          "keywords": "turtle soup"
+        },
+        {
+          "name": "Displacement",
+          "desc": "Сильний імпульсний рух з великими тілами свічок і FVG.",
+          "use": "Створює якісні OB і FVG. Підтверджує направленість smart money.",
+          "keywords": "displacement імпульс"
+        },
+        {
+          "name": "Mitigation",
+          "desc": "Процес повернення ціни до зони, де великі гравці закрили збиткові позиції.",
+          "use": "Mitigated OB = вже відпрацьований, шукай свіжі немітиговані зони.",
+          "keywords": "mitigation митигація"
+        },
+        {
+          "name": "ICT Macros",
+          "desc": "Конкретні 20-хвилинні вікна високої волатильності (наприклад, 09:50-10:10 NY).",
+          "use": "Інституції активні в макро-вікнах. Часто там відбуваються свіпи і розвороти.",
+          "keywords": "ICT macros макроси"
+        }
+      ]
+    },
+    {
+      "icon": "📍",
+      "title": "Ключові рівні (MTF)",
+      "dataCategory": "Ключові рівні",
+      "terms": [
+        {
+          "name": "PDH",
+          "abbr": "Previous Day High",
+          "desc": "Максимум попереднього дня.",
+          "use": "Магніт ліквідності. Часто тестується на наступний день.",
+          "keywords": "PDH previous day high"
+        },
+        {
+          "name": "PDL",
+          "abbr": "Previous Day Low",
+          "desc": "Мінімум попереднього дня.",
+          "use": "Магніт ліквідності внизу. Часто свіпається наступного дня.",
+          "keywords": "PDL previous day low"
+        },
+        {
+          "name": "PWH",
+          "abbr": "Previous Week High",
+          "desc": "Максимум попереднього тижня.",
+          "use": "Сильний рівень для свінг-трейдингу. Більше ліквідності ніж PDH.",
+          "keywords": "PWH previous week high"
+        },
+        {
+          "name": "PWL",
+          "abbr": "Previous Week Low",
+          "desc": "Мінімум попереднього тижня.",
+          "use": "Сильна зона ліквідності для тижневих сетапів.",
+          "keywords": "PWL previous week low"
+        },
+        {
+          "name": "PMH",
+          "abbr": "Previous Month High",
+          "desc": "Максимум попереднього місяця.",
+          "use": "Дуже сильний рівень. Критичний для позиційного трейдингу.",
+          "keywords": "PMH previous month high"
+        },
+        {
+          "name": "PML",
+          "abbr": "Previous Month Low",
+          "desc": "Мінімум попереднього місяця.",
+          "use": "Топ-рівень для свінг/позиційних сетапів.",
+          "keywords": "PML previous month low"
+        },
+        {
+          "name": "PYH / PYL",
+          "desc": "Максимум/мінімум попереднього року.",
+          "use": "Найжирніші рівні для довгострокового інвестування.",
+          "keywords": "PYH PYL previous year"
+        },
+        {
+          "name": "PDC",
+          "abbr": "Previous Day Close",
+          "desc": "Ціна закриття попереднього дня.",
+          "use": "Психологічний орієнтир для відкриття нової сесії.",
+          "keywords": "PDC previous day close"
+        },
+        {
+          "name": "MTF",
+          "abbr": "Multi-Timeframe",
+          "desc": "Аналіз з кількох таймфреймів одночасно.",
+          "use": "Старший ТФ = напрямок, молодший = вхід. Класика — 3 ТФ підряд.",
+          "keywords": "MTF multi timeframe"
+        },
+        {
+          "name": "HTF",
+          "abbr": "Higher Timeframe",
+          "desc": "Старший таймфрейм відносно поточного.",
+          "use": "Завжди визначай напрямок з HTF, не торгуй проти нього.",
+          "keywords": "HTF higher timeframe старший"
+        },
+        {
+          "name": "LTF",
+          "abbr": "Lower Timeframe",
+          "desc": "Молодший таймфрейм для точності входу.",
+          "use": "На LTF шукай тригер входу в напрямку HTF тренду.",
+          "keywords": "LTF lower timeframe молодший"
+        }
+      ]
+    },
+    {
+      "icon": "📊",
+      "title": "Volume / VWAP / Profile",
+      "dataCategory": "Volume / VWAP",
+      "terms": [
+        {
+          "name": "VWAP",
+          "abbr": "Volume Weighted Average Price",
+          "desc": "Середня ціна за період, зважена по обʼєму.",
+          "use": "Інституції орієнтуються на VWAP. Вище = бичачий настрій, нижче = ведмежий.",
+          "keywords": "VWAP volume weighted"
+        },
+        {
+          "name": "SD",
+          "abbr": "Standard Deviation",
+          "desc": "Стандартні відхилення від VWAP (±1, ±2). \"Бендзи Боллінджера\" навколо VWAP.",
+          "use": "±2 SD = екстремальне відхилення. Часто шукають повернення до VWAP.",
+          "keywords": "SD standard deviation відхилення"
+        },
+        {
+          "name": "POC",
+          "abbr": "Point of Control",
+          "desc": "Рівень ціни з максимальним обʼємом за період.",
+          "use": "Найсильніший магніт для ціни. Зона \"справжньої\" вартості.",
+          "keywords": "POC point of control"
+        },
+        {
+          "name": "VAH",
+          "abbr": "Value Area High",
+          "desc": "Верхня межа Value Area — зони ~70% обʼєму.",
+          "use": "Опір. Вихід вище = акцептація преміум зони.",
+          "keywords": "VAH value area high"
+        },
+        {
+          "name": "VAL",
+          "abbr": "Value Area Low",
+          "desc": "Нижня межа Value Area.",
+          "use": "Підтримка. Вихід нижче = акцептація дисконт зони.",
+          "keywords": "VAL value area low"
+        },
+        {
+          "name": "VA",
+          "abbr": "Value Area",
+          "desc": "Цінова зона, де відбулось ~70% обʼєму торгів за період.",
+          "use": "\"Справедливий\" діапазон. Ринок повертається в VA після виходу.",
+          "keywords": "value area"
+        },
+        {
+          "name": "Volume Profile",
+          "desc": "Гістограма обʼєму по цінових рівнях за період.",
+          "use": "Показує де реально торгували. HVN = підтримка, LVN = швидкі прольоти.",
+          "keywords": "volume profile профіль обєму"
+        },
+        {
+          "name": "HVN",
+          "abbr": "High Volume Node",
+          "desc": "Зони з високим обʼємом у Volume Profile.",
+          "use": "Сильні рівні підтримки/опору. Ціна \"застрягає\" в HVN.",
+          "keywords": "HVN high volume node"
+        },
+        {
+          "name": "LVN",
+          "abbr": "Low Volume Node",
+          "desc": "Зони з низьким обʼємом.",
+          "use": "Ціна швидко проходить LVN. Часто = імпульсні зони.",
+          "keywords": "LVN low volume node"
+        },
+        {
+          "name": "CVD",
+          "abbr": "Cumulative Volume Delta",
+          "desc": "Кумулятивна різниця між агресивними покупками і продажами.",
+          "use": "CVD росте + ціна стоїть = акумуляція. CVD падає + ціна стоїть = дистрибуція.",
+          "keywords": "CVD cumulative volume delta"
+        },
+        {
+          "name": "Open Interest (OI)",
+          "desc": "Кількість відкритих фʼючерсних контрактів.",
+          "use": "OI росте + ціна росте = новий тренд. OI падає = закриття позицій.",
+          "keywords": "open interest OI"
+        }
+      ]
+    },
+    {
+      "icon": "🛠️",
+      "title": "Індикатори (TradingView)",
+      "dataCategory": "Індикатори",
+      "terms": [
+        {
+          "name": "LuxAlgo — Smart Money Concepts",
+          "desc": "Все-в-одному: OB, FVG, BOS, CHoCH, ліквідність.",
+          "use": "Стандарт для SMC. Безкоштовний. Старт для будь-якого SMC трейдера.",
+          "keywords": "LuxAlgo SMC smart money concepts"
+        },
+        {
+          "name": "Key Levels Suite (Leviathan)",
+          "desc": "Десятки рівнів в одному: Opens, H/L, VWAP, POC, Pivots, Sessions, Psychological.",
+          "use": "Для глобального аналізу — увімкни тільки Monthly/Yearly + 200 MA.",
+          "keywords": "key levels suite leviathan"
+        },
+        {
+          "name": "Bitcoin Events History (LucasVivien)",
+          "desc": "Відмічає історичні події BTC прямо на графіку (COVID, FTX, Terra, війни, халвінги).",
+          "use": "Контекст для розуміння реакції ринку на події.",
+          "keywords": "bitcoin events history"
+        },
+        {
+          "name": "ICT Concepts (TFlab)",
+          "desc": "Альтернатива LuxAlgo, більш ICT-орієнтований.",
+          "use": "Якщо вчишся саме ICT методології — варто спробувати.",
+          "keywords": "ICT concepts TFlab"
+        },
+        {
+          "name": "MA",
+          "abbr": "Moving Average",
+          "desc": "Проста ковзна середня за період.",
+          "use": "200 MA на Weekly = бик/ведмідь маркет для BTC.",
+          "keywords": "MA moving average ковзна"
+        },
+        {
+          "name": "EMA",
+          "abbr": "Exponential Moving Average",
+          "desc": "Експоненціальна ковзна — більше реагує на останні ціни.",
+          "use": "21 EMA / 50 EMA — динамічна підтримка в трендах.",
+          "keywords": "EMA exponential"
+        },
+        {
+          "name": "RSI",
+          "abbr": "Relative Strength Index",
+          "desc": "Осцилятор 0-100. >70 = перекуплено, <30 = перепродано.",
+          "use": "Шукай дивергенції з ціною — найкорисніше використання RSI.",
+          "keywords": "RSI relative strength"
+        },
+        {
+          "name": "MACD",
+          "desc": "Тренд + моментум через дві EMA і їх різницю.",
+          "use": "Перетин сигнальної лінії = тригер. Дивергенції = сильний сигнал.",
+          "keywords": "MACD"
+        },
+        {
+          "name": "Pi Cycle Top",
+          "desc": "Перетин 111 DMA і 350 DMA × 2. Історично точно ловить топи циклів BTC.",
+          "use": "Для довгострокового інвестування — індикатор виходу на топах.",
+          "keywords": "pi cycle top"
+        },
+        {
+          "name": "Bitcoin Rainbow Chart",
+          "desc": "Логарифмічна шкала з кольоровими зонами від \"fire sale\" до \"maximum bubble\".",
+          "use": "Швидке візуальне розуміння де ми в циклі.",
+          "keywords": "rainbow chart"
+        },
+        {
+          "name": "MVRV Z-Score",
+          "desc": "Відношення market value до realized value.",
+          "use": "Високі значення = топ циклу, низькі = дно. Класика для BTC циклів.",
+          "keywords": "MVRV z-score"
+        },
+        {
+          "name": "Bollinger Bands",
+          "desc": "SMA з ±2 SD. Показує волатильність.",
+          "use": "Стиснення бендзів = очікуй вибух волатильності в будь-який бік.",
+          "keywords": "bollinger bands"
+        },
+        {
+          "name": "Fibonacci Retracement",
+          "desc": "Рівні 23.6%, 38.2%, 50%, 61.8%, 78.6% від руху.",
+          "use": "61.8% і 78.6% = OTE зона входу за трендом.",
+          "keywords": "fibonacci фібоначчі"
+        }
+      ]
+    },
+    {
+      "icon": "📐",
+      "title": "Загальний Technical Analysis",
+      "dataCategory": "Загальний TA",
+      "terms": [
+        {
+          "name": "Support (Підтримка)",
+          "desc": "Рівень, де покупці перевищують продавців. Ціна \"відскакує\".",
+          "use": "Шукай лонги при тестуванні. Пробій вниз = розворот рівня в опір.",
+          "keywords": "support підтримка"
+        },
+        {
+          "name": "Resistance (Опір)",
+          "desc": "Рівень, де продавці перевищують покупців.",
+          "use": "Шукай шорти. Пробій вгору = опір стає підтримкою.",
+          "keywords": "resistance опір"
+        },
+        {
+          "name": "Breakout",
+          "desc": "Пробій ключового рівня з обʼємом.",
+          "use": "Чекай ретест пробитого рівня для безпечного входу.",
+          "keywords": "breakout пробій"
+        },
+        {
+          "name": "Breakdown",
+          "desc": "Пробій підтримки вниз.",
+          "use": "Тригер для шортів. Часто супроводжується сплеском обʼєму.",
+          "keywords": "breakdown пробій вниз"
+        },
+        {
+          "name": "Point of Breakdown",
+          "desc": "Конкретна цінова точка пробою підтримки.",
+          "use": "Тригер для входу в шорт або стопу для лонгу.",
+          "keywords": "point of breakdown"
+        },
+        {
+          "name": "Fakeout / Fake Breakout",
+          "desc": "Хибний пробій з негайним поверненням в діапазон.",
+          "use": "По суті = liquidity sweep. Контртренд сетап.",
+          "keywords": "fakeout fake breakout хибний"
+        },
+        {
+          "name": "Retest",
+          "desc": "Повернення ціни до пробитого рівня для його тестування.",
+          "use": "Найбезпечніша точка входу після пробою.",
+          "keywords": "retest ретест"
+        },
+        {
+          "name": "Consolidation / Range",
+          "desc": "Бічний рух між підтримкою і опором.",
+          "use": "Торгуй від меж діапазону. Чекай пробою для тренду.",
+          "keywords": "consolidation консолідація range"
+        },
+        {
+          "name": "Trend",
+          "desc": "Стійкий напрямок руху ціни (вгору/вниз/бічний).",
+          "use": "\"Trend is your friend\" — торгуй за трендом, не проти.",
+          "keywords": "trend тренд"
+        },
+        {
+          "name": "Impulse / Correction",
+          "desc": "Imp = сильний рух за трендом. Corr = відкат проти.",
+          "use": "Заходь в кінці корекції на старті нового імпульсу.",
+          "keywords": "impulse корекція"
+        },
+        {
+          "name": "Wick / Shadow (Тінь)",
+          "desc": "Тонка лінія свічки, що показує екстремум ціни.",
+          "use": "Довгі тіні = відхилення ціни. Часто маркують свіпи ліквідності.",
+          "keywords": "wick тінь shadow"
+        },
+        {
+          "name": "Body (Тіло свічки)",
+          "desc": "Прямокутник між open і close.",
+          "use": "Великі тіла = displacement. Маленькі = невизначеність.",
+          "keywords": "body тіло свічки"
+        },
+        {
+          "name": "Divergence (Дивергенція)",
+          "desc": "Розбіжність між ціною і індикатором (RSI, MACD).",
+          "use": "Bullish div = ціна нижче, індикатор вище → потенційний розворот вгору.",
+          "keywords": "divergence дивергенція"
+        },
+        {
+          "name": "Bias",
+          "desc": "Очікуваний напрямок ринку на основі аналізу.",
+          "use": "Завжди формуй HTF bias перед торгівлею. Не торгуй без bias.",
+          "keywords": "HTF htf bias bias напрямок"
+        },
+        {
+          "name": "Confluence (Конфлюенс)",
+          "desc": "Кілька факторів вказують на одну зону.",
+          "use": "Чим більше конфлюенсу — тим вища ймовірність сетапу.",
+          "keywords": "confluence конфлюенс"
+        }
+      ]
+    },
+    {
+      "icon": "₿",
+      "title": "Crypto-specific метрики",
+      "dataCategory": "Crypto-specific",
+      "terms": [
+        {
+          "name": "Halving (Халвінг)",
+          "desc": "Скорочення винагороди майнерів BTC вдвічі кожні ~4 роки.",
+          "use": "Історично починає бичачі цикли через 6-12 місяців після халвінгу.",
+          "keywords": "halving халвінг"
+        },
+        {
+          "name": "ATH",
+          "abbr": "All-Time High",
+          "desc": "Історичний максимум ціни.",
+          "use": "Психологічний рівень. Пробій ATH = price discovery, нові хаї.",
+          "keywords": "ATH all time high"
+        },
+        {
+          "name": "ATL",
+          "abbr": "All-Time Low",
+          "desc": "Історичний мінімум ціни.",
+          "use": "Рідко тестується після зрілості активу.",
+          "keywords": "ATL all time low"
+        },
+        {
+          "name": "BTC Dominance (BTC.D)",
+          "desc": "Частка BTC в загальній капіталізації крипто.",
+          "use": "BTC.D росте = altseason ще не настав. BTC.D падає = ротація в альти.",
+          "keywords": "dominance домінація BTC.D"
+        },
+        {
+          "name": "Altseason",
+          "desc": "Період, коли альткоїни значно випереджають BTC.",
+          "use": "Зазвичай після ралі BTC, коли BTC.D починає падати.",
+          "keywords": "altseason альтсезон"
+        },
+        {
+          "name": "Funding Rate",
+          "desc": "Платежі між лонгами і шортами на фʼючерсах для збалансування ціни з спотом.",
+          "use": "Високий позитивний = перевантаж лонгів = ризик флешкреша.",
+          "keywords": "funding rate"
+        },
+        {
+          "name": "Liquidation",
+          "desc": "Примусове закриття позиції з кредитним плечем при недостатньому марджині.",
+          "use": "Кластери ліквідацій = магніти для ціни. Дивись Liquidation Heatmaps.",
+          "keywords": "liquidation ліквідація"
+        },
+        {
+          "name": "Long/Short Ratio",
+          "desc": "Співвідношення відкритих лонгів до шортів.",
+          "use": "Екстреми = контртренд сигнал. Натовп зазвичай помиляється.",
+          "keywords": "long short ratio"
+        },
+        {
+          "name": "Market Cap",
+          "desc": "Капіталізація = ціна × циркулююча пропозиція.",
+          "use": "Орієнтир розміру і потенціалу зростання активу.",
+          "keywords": "market cap капіталізація"
+        },
+        {
+          "name": "TVL",
+          "abbr": "Total Value Locked",
+          "desc": "Сумарна вартість активів у DeFi протоколі.",
+          "use": "Ріст TVL = зростання довіри і використання протоколу.",
+          "keywords": "TVL total value locked"
+        }
+      ]
+    }
+  ]
+}
