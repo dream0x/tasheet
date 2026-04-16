@@ -398,12 +398,29 @@
   @media (max-width: 768px) {
     .app {
       grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
     }
-    .topbar { grid-column: 1; }
-    .main { grid-column: 1; grid-row: 2; }
+    .topbar {
+      grid-column: 1;
+      flex-wrap: wrap;
+      padding: 10px 12px;
+      gap: 8px;
+      min-height: 56px;
+      height: auto;
+    }
+    .topbar-logo .logo-text { display: none; }
+    .topbar-stats { display: none; }
+    .topbar-search {
+      order: 99;
+      flex-basis: 100%;
+      max-width: none;
+    }
+    .topbar-search input { font-size: 14px; padding: 10px 14px 10px 36px; }
+    .topbar-search .search-kbd { display: none; }
+    .topbar-btn { padding: 6px 8px; font-size: 16px; }
     .sidebar {
       position: fixed;
-      top: 56px;
+      top: 104px;
       left: 0;
       bottom: 0;
       width: 280px;
@@ -415,15 +432,14 @@
     .sidebar-overlay {
       display: none;
       position: fixed;
-      inset: 56px 0 0 0;
+      inset: 104px 0 0 0;
       background: rgba(0, 0, 0, 0.5);
       z-index: 140;
     }
     .sidebar-overlay.open { display: block; }
     .sidebar-toggle { display: block; }
-    .main { padding: 20px 16px; }
+    .main { grid-column: 1; grid-row: 2; padding: 20px 16px; }
     .term-grid { grid-template-columns: 1fr; }
-    .topbar-search .search-kbd { display: none; }
   }
 
   /* ========== PRINT ========== */
@@ -453,7 +469,7 @@
     <button class="sidebar-toggle" id="sidebarToggle" title="Menu">☰</button>
     <div class="topbar-logo">
       <span class="logo-icon">📊</span>
-      <span id="pageTitle">Trading Cheat Sheet</span>
+      <span class="logo-text" id="pageTitle">Trading Cheat Sheet</span>
     </div>
     <div class="topbar-search">
       <span class="search-icon">🔍</span>
